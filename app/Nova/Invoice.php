@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\Actions\GenerateInvoice;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
@@ -50,7 +51,7 @@ class Invoice extends Resource
             BelongsTo::make('Customer'),
 
             HasMany::make('Lines'),
-            NestedForm::make('Posts'),
+            //NestedForm::make('Lines'),
         ];
     }
 
@@ -95,6 +96,8 @@ class Invoice extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new GenerateInvoice(),
+        ];
     }
 }

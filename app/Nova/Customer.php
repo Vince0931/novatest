@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\Actions\GenerateInvoice;
 use Laravel\Nova\Fields\Country;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
@@ -103,6 +104,8 @@ class Customer extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+
+        ];
     }
 }

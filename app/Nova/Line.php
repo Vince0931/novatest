@@ -47,9 +47,13 @@ class Line extends Resource
 
             BelongsTo::make('Invoice'),
 
-            Text::make('Description'),
-            Number::make('Quantity'),
-            Number::make('Unit Price in Cents'),
+            Text::make('Description')->rules(['required']),
+            Number::make('Quantity')->rules(['required']),
+            Number::make('Unit Price in Euros')->onlyOnForms()->step(0.01)->rules(['required']),
+
+            Text::make('Unit Price', 'unit_price_as_string')->exceptOnForms(),
+            Text::make('Total Price', 'total_price_as_string')->exceptOnForms(),
+
         ];
     }
 
