@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Laravel\Nova\Fields\Country;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Place;
@@ -55,6 +56,8 @@ class Customer extends Resource
             Country::make('Country'),
             Text::make('Latitude')->hideFromIndex(),
             Text::make('Longitude')->hideFromIndex(),
+
+            HasMany::make('Invoices'),
 
         );
     }

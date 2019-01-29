@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "785cc92611d8ed9f6c978bc76d6bf65e",
+    "content-hash": "4d67b2aada101a53cadf5218abec4624",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -3332,6 +3332,53 @@
                 "environment"
             ],
             "time": "2019-01-28T20:57:27+00:00"
+        },
+        {
+            "name": "yassi/nova-nested-form",
+            "version": "v2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yassipad/laravel-nova-nested-form.git",
+                "reference": "79d8076f04a81250dc5f17f1c326d4a29cbd8dc4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yassipad/laravel-nova-nested-form/zipball/79d8076f04a81250dc5f17f1c326d4a29cbd8dc4",
+                "reference": "79d8076f04a81250dc5f17f1c326d4a29cbd8dc4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "laravel/nova": "^1.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Yassi\\NestedForm\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yassi\\NestedForm\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova package that allows you to create/update/delete nested related fields from a parent form.",
+            "keywords": [
+                "form",
+                "laravel",
+                "nested",
+                "nova",
+                "relationship"
+            ],
+            "time": "2019-01-14T10:34:05+00:00"
         },
         {
             "name": "zendframework/zend-diactoros",
