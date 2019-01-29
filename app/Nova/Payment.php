@@ -2,31 +2,27 @@
 
 namespace App\Nova;
 
-use App\Nova\Actions\GenerateInvoice;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\HasMany;
-use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Text;
-use Yassi\NestedForm\NestedForm;
+use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Invoice extends Resource
+class Payment extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\Invoice';
+    public static $model = 'App\Payment';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'no';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -34,7 +30,7 @@ class Invoice extends Resource
      * @var array
      */
     public static $search = [
-        'no',
+        'id',
     ];
 
     /**
@@ -47,16 +43,12 @@ class Invoice extends Resource
     {
         return [
             ID::make()->sortable(),
+            Select::make('Type')->options([
+                'stripe' => 'Stripe',
+                'transfer' => 'Virement',
+            ]),
+            Number::make('Amount in Euros')->step(0.01)->rules(['required']),
 
-            Text::make("No"),
-
-            Boolean::make('facture générée ?', 'is_generated')->exceptOnForms(),
-
-            BelongsTo::make('Customer'),
-
-            HasMany::make('Lines'),
-            //NestedForm::make('Lines'),
-            HasOne::make('Payment'),
         ];
     }
 
@@ -101,8 +93,6 @@ class Invoice extends Resource
      */
     public function actions(Request $request)
     {
-        return [
-            new GenerateInvoice(),
-        ];
+        return [];
     }
 }

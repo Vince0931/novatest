@@ -18,6 +18,8 @@ class CreateInvoicesTable extends Migration
             $table->string('no')->unique();
             $table->unsignedInteger('customer_id');
             $table->foreign('customer_id')->references('id')->on('customers');
+            $table->unsignedInteger('payment_id');
+            $table->foreign('payment_id')->references('id')->on('payments');
             $table->timestamps();
         });
     }

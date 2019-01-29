@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Foundation\Inspiring;
-
 /*
 |--------------------------------------------------------------------------
 | Console Routes
@@ -13,6 +12,12 @@ use Illuminate\Foundation\Inspiring;
 |
 */
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
+Artisan::command('test', function () {
+    Schema::table('invoices', function ($table) {
+
+        $table->unsignedInteger('payment_id')->nullable();
+        $table->foreign('payment_id')->references('id')->on('payments');
+    });
+
+
 })->describe('Display an inspiring quote');
