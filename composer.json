@@ -20,7 +20,8 @@
         "laravel/framework": "5.7.*",
         "laravel/nova": "~1.0",
         "laravel/tinker": "^1.0",
-        "yassi/nova-nested-form": "^2.0"
+        "yassi/nova-nested-form": "^2.0",
+        "ext-bcmath": "*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
@@ -66,6 +67,10 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "post-install-cmd": [
+          "chmod -R 755 bootstrap\/cache",
+          "php artisan cache:clear"
         ]
     }
 }
