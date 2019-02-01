@@ -1,5 +1,5 @@
 
-NOVA LARAVEL on GCP
+# NOVA LARAVEL on GCP
 
 
 
@@ -31,5 +31,7 @@ deploy on GCP
 `gcloud app deploy`
 
 
+debug GCP instance
 
+https://cloud.google.com/appengine/docs/flexible/python/debugging-an-instance
 

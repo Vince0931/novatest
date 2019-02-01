@@ -10,17 +10,26 @@ skip_files:
 
 env_variables:
   # Put production environment variables here.
+  APP_DEBUG: true
   APP_LOG: errorlog
   APP_KEY: base64:4iy5UioNZ5WvT46oI03GTGg3f0LrJIjFaVxN49EQ2+A=
-  STORAGE_DIR: /tmp
+  # STORAGE_DIR: /tmp
+
   CACHE_DRIVER: database
   SESSION_DRIVER: database
+
   DB_HOST: localhost
+  DB_PORT: 3307
   DB_DATABASE: novadb
   DB_USERNAME: root
   DB_PASSWORD: ADyl1yCus4zKCMhN
   DB_SOCKET: "/cloudsql/nova-230215:europe-west3:novadb"
+
 beta_settings:
   cloud_sql_instances: "nova-230215:europe-west3:novadb"
 
-
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 2
+  cpu_utilization:
+    target_utilization: 0.5

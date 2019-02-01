@@ -42,9 +42,14 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function gate()
     {
         Gate::define('viewNova', function ($user) {
+
+            return true;
+            # TODO add role/permission plugin
+            /*
             return in_array($user->email, [
                 //
-            ]);
+
+            ]);*/
         });
     }
 
