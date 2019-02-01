@@ -13,3 +13,14 @@ env_variables:
   APP_LOG: errorlog
   APP_KEY: base64:4iy5UioNZ5WvT46oI03GTGg3f0LrJIjFaVxN49EQ2+A=
   STORAGE_DIR: /tmp
+  CACHE_DRIVER: database
+  SESSION_DRIVER: database
+  DB_HOST: localhost
+  DB_DATABASE: novadb
+  DB_USERNAME: root
+  DB_PASSWORD: ADyl1yCus4zKCMhN
+  DB_SOCKET: "/cloudsql/nova-230215:europe-west3:novadb"
+beta_settings:
+  cloud_sql_instances: "nova-230215:europe-west3:novadb"
+
+
