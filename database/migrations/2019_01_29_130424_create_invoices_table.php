@@ -17,7 +17,7 @@ class CreateInvoicesTable extends Migration
             $table->increments('id');
             $table->string('no')->unique();
             $table->unsignedInteger('customer_id');
-            $table->unsignedInteger('payment_id');
+            $table->unsignedInteger('payment_id')->nullable();
             $table->timestamps();
         });
     }

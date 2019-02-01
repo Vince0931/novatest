@@ -55,7 +55,7 @@ class Invoice extends Resource
             BelongsTo::make('Customer'),
 
             HasMany::make('Lines'),
-            //NestedForm::make('Lines'),
+            NestedForm::make('Lines'),
             HasOne::make('Payment'),
         ];
     }
