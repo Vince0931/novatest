@@ -21,6 +21,12 @@ class CreatePaymentsTable extends Migration
             $table->unsignedInteger('amount_in_euros');
             $table->timestamps();
         });
+
+        Schema::table('invoices', function (Blueprint $table) {
+            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->foreign('payment_id')->references('id')->on('payments');
+        });
+
     }
 
     /**
